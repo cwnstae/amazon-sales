@@ -702,6 +702,9 @@ plt.xlabel('revenue')
 plt.ylabel('Rating')
 plt.show()
 ```
+![image](https://github.com/user-attachments/assets/84bebc89-e163-4d2e-b78e-78655c0dfe33)
+
+
 This scatter plot shows the relationship between Revenue and Rating
  - Most products have low revenue, clustering near the lower end.
  - Higher revenue products tend to have good ratings (around 4.0–4.5).
