@@ -653,3 +653,9 @@ df.describe()
   </tbody>
 </table>
 </div>
+
+# Let's get started with exploratory data analysis (EDA)
+## 1. Identifying sales trends and top-performing products
+To identify sales trends and top-performing products in the dataset, I'll need to focus on analyzing specific columns, such as discounted_price, actual_price, rating, rating_count, and others. Here’s a step-by-step approach:
+### 1.1 Highest Sales (Revenue)
+
