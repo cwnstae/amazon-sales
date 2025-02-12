@@ -495,14 +495,10 @@ df.describe()
 </table>
 </div>
 
-
-
-
-Check what is the 2 missing values
+Next to the last one, let's check what is the 2 missing values in `rating_count` column
 ```python
 df[df['rating_count'].isnull()]
 ```
-
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -532,9 +528,9 @@ df[df['rating_count'].isnull()]
       <td>B0B94JPY2N</td>
       <td>Amazon Brand - Solimo 65W Fast Charging Braide...</td>
       <td>Computers&amp;Accessories|Accessories&amp;Peripherals|...</td>
-      <td>₹199</td>
-      <td>₹999</td>
-      <td>80%</td>
+      <td>199.0</td>
+      <td>999.0</td>
+      <td>0.80</td>
       <td>3.0</td>
       <td>NaN</td>
       <td>USB C to C Cable: This cable has type C connec...</td>
@@ -551,9 +547,9 @@ df[df['rating_count'].isnull()]
       <td>B0BQRJ3C47</td>
       <td>REDTECH USB-C to Lightning Cable 3.3FT, [Apple...</td>
       <td>Computers&amp;Accessories|Accessories&amp;Peripherals|...</td>
-      <td>₹249</td>
-      <td>₹999</td>
-      <td>75%</td>
+      <td>249.0</td>
+      <td>999.0</td>
+      <td>0.75</td>
       <td>5.0</td>
       <td>NaN</td>
       <td>💎[The Fastest Charge] - This iPhone USB C cabl...</td>
@@ -570,3 +566,90 @@ df[df['rating_count'].isnull()]
 </div>
 
 To anoid data loss and keep important information I impute muissing value with median
+
+```python
+df['rating_count'] =df['rating_count'].str.replace(",","")
+df['rating_count'] =df['rating_count'].astype('float64')
+df['rating_count'] = df.rating_count.fillna(value=df['rating_count'].median())
+df.describe()
+```
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>discounted_price</th>
+      <th>actual_price</th>
+      <th>discount_percentage</th>
+      <th>rating</th>
+      <th>rating_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1464.000000</td>
+      <td>1464.000000</td>
+      <td>1464.000000</td>
+      <td>1464.000000</td>
+      <td>1464.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3126.011906</td>
+      <td>5447.002923</td>
+      <td>0.477131</td>
+      <td>4.096585</td>
+      <td>18289.441940</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>6946.625442</td>
+      <td>10878.270001</td>
+      <td>0.216274</td>
+      <td>0.291674</td>
+      <td>42739.607548</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>39.000000</td>
+      <td>39.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>323.750000</td>
+      <td>800.000000</td>
+      <td>0.320000</td>
+      <td>4.000000</td>
+      <td>1192.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>799.000000</td>
+      <td>1650.000000</td>
+      <td>0.500000</td>
+      <td>4.100000</td>
+      <td>5179.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1999.000000</td>
+      <td>4303.750000</td>
+      <td>0.630000</td>
+      <td>4.300000</td>
+      <td>17330.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>77990.000000</td>
+      <td>139900.000000</td>
+      <td>0.940000</td>
+      <td>5.000000</td>
+      <td>426973.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
