@@ -332,11 +332,11 @@ All the data is described as a non-numeric column, and I need to change its data
 ```python
 df['discounted_price'] = df['discounted_price'].str.replace("₹","")
 df['discounted_price'] = df['discounted_price'].str.replace(",",'')
-df['discounted_price'] = df['discounted_price'].astype('float64')
+df['discounted_price'] = df['discounted_price'].astype('float64')* 0.012 #convert to usd
 
 df['actual_price'] = df['actual_price'].str.replace("₹",'')
 df['actual_price'] = df['actual_price'].str.replace(",",'')
-df['actual_price'] = df['actual_price'].astype('float64')
+df['actual_price'] = df['actual_price'].astype('float64') * 0.012 #convert to usd
 
 df['discount_percentage']=df['discount_percentage'].str.replace("%",'')
 df['discount_percentage'] = df['discount_percentage'].astype('float64')
@@ -444,50 +444,50 @@ df.describe()
     </tr>
     <tr>
       <th>mean</th>
-      <td>3126.011906</td>
-      <td>5447.002923</td>
+      <td>37.512143</td>
+      <td>65.364035</td>
       <td>0.477131</td>
       <td>4.096585</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>6946.625442</td>
-      <td>10878.270001</td>
+      <td>83.359505</td>
+      <td>130.539240</td>
       <td>0.216274</td>
       <td>0.291674</td>
     </tr>
     <tr>
       <th>min</th>
-      <td>39.000000</td>
-      <td>39.000000</td>
+      <td>0.468000</td>
+      <td>0.468000</td>
       <td>0.000000</td>
       <td>2.000000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>323.750000</td>
-      <td>800.000000</td>
+      <td>3.885000</td>
+      <td>9.600000</td>
       <td>0.320000</td>
       <td>4.000000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>799.000000</td>
-      <td>1650.000000</td>
+      <td>9.588000</td>
+      <td>19.800000</td>
       <td>0.500000</td>
       <td>4.100000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>1999.000000</td>
-      <td>4303.750000</td>
+      <td>23.988000</td>
+      <td>51.645000</td>
       <td>0.630000</td>
       <td>4.300000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>77990.000000</td>
-      <td>139900.000000</td>
+      <td>935.880000</td>
+      <td>1678.800000</td>
       <td>0.940000</td>
       <td>5.000000</td>
     </tr>
@@ -528,8 +528,8 @@ df[df['rating_count'].isnull()]
       <td>B0B94JPY2N</td>
       <td>Amazon Brand - Solimo 65W Fast Charging Braide...</td>
       <td>Computers&amp;Accessories|Accessories&amp;Peripherals|...</td>
-      <td>199.0</td>
-      <td>999.0</td>
+      <td>2.388</td>
+      <td>11.988</td>
       <td>0.80</td>
       <td>3.0</td>
       <td>NaN</td>
@@ -547,8 +547,8 @@ df[df['rating_count'].isnull()]
       <td>B0BQRJ3C47</td>
       <td>REDTECH USB-C to Lightning Cable 3.3FT, [Apple...</td>
       <td>Computers&amp;Accessories|Accessories&amp;Peripherals|...</td>
-      <td>249.0</td>
-      <td>999.0</td>
+      <td>2.988</td>
+      <td>11.988</td>
       <td>0.75</td>
       <td>5.0</td>
       <td>NaN</td>
@@ -596,56 +596,56 @@ df.describe()
     </tr>
     <tr>
       <th>mean</th>
-      <td>3126.011906</td>
-      <td>5447.002923</td>
+      <td>37.512143</td>
+      <td>65.364035</td>
       <td>0.477131</td>
       <td>4.096585</td>
       <td>18289.441940</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>6946.625442</td>
-      <td>10878.270001</td>
+      <td>83.359505</td>
+      <td>130.539240</td>
       <td>0.216274</td>
       <td>0.291674</td>
       <td>42739.607548</td>
     </tr>
     <tr>
       <th>min</th>
-      <td>39.000000</td>
-      <td>39.000000</td>
+      <td>0.468000</td>
+      <td>0.468000</td>
       <td>0.000000</td>
       <td>2.000000</td>
       <td>2.000000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>323.750000</td>
-      <td>800.000000</td>
+      <td>3.885000</td>
+      <td>9.600000</td>
       <td>0.320000</td>
       <td>4.000000</td>
       <td>1192.500000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>799.000000</td>
-      <td>1650.000000</td>
+      <td>9.588000</td>
+      <td>19.800000</td>
       <td>0.500000</td>
       <td>4.100000</td>
       <td>5179.000000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>1999.000000</td>
-      <td>4303.750000</td>
+      <td>23.988000</td>
+      <td>51.645000</td>
       <td>0.630000</td>
       <td>4.300000</td>
       <td>17330.750000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>77990.000000</td>
-      <td>139900.000000</td>
+      <td>935.880000</td>
+      <td>1678.800000</td>
       <td>0.940000</td>
       <td>5.000000</td>
       <td>426973.000000</td>
@@ -658,5 +658,43 @@ df.describe()
 ## 1. Identifying sales trends and top-performing products
 To identify sales trends and top-performing products in the dataset, I'll need to focus on analyzing specific columns, such as discounted_price, actual_price, rating, rating_count, and others. Here’s a step-by-step approach:
 ### 1.1 Highest Sales (Revenue)
-![image](https://github.com/user-attachments/assets/94de6a38-6706-4f2d-931f-886eee7506ec)
+As we don't have the units sold, I approximate the total revenue of each product by multiplying the maximum rating_count by the discounted_price.
+```python
+df_max_rating = df.loc[df.groupby('product_id')['rating_count'].idxmax()]
+df_max_rating['revenue'] = df_max_rating['discounted_price'] * df_max_rating['rating_count']
+highest_revenue = df_max_rating.sort_values(by='revenue',ascending=False)
+highest_revenue['short_product_name'] = highest_revenue['product_name'].apply(lambda x: x.split()[0] + ' (' + x[1:20] + '...)' if len(x) > 20 else x)
+# Divide the revenue by 1,000,000 to convert to millions
+highest_revenue['revenue_in_millions'] = highest_revenue['revenue'] / 1_000_000
+
+# Plot the data
+plt.figure(figsize=(10, 5))
+sns.barplot(x='short_product_name', y='revenue_in_millions', data=highest_revenue.head(10))
+
+# Format the y-axis to show labels in millions
+plt.ylabel('Revenue (in Millions USD)')
+plt.xticks(rotation=90)  # Rotate labels if necessary
+plt.show()
+```
+Here are the top 10 products by revenue.
+![image](https://github.com/user-attachments/assets/cff3f9aa-c453-4962-935e-ea67e3a2b1df)
+```python
+# Aggregate revenue by category
+highest_revenue['shortened_category'] = highest_revenue['category'].apply(lambda x: x.split('|')[0])
+category_revenue = highest_revenue.groupby('shortened_category')['revenue_in_millions'].sum().sort_values(ascending=False).head(10)
+category_revenue
+# Plot
+plt.figure(figsize=(10, 6))
+sns.barplot(x=category_revenue.index, y=category_revenue.values)
+plt.xticks(rotation=90)  # Rotate category names if they are long
+plt.ylabel('Revenue (in Millions USD)')
+plt.title('Top 10 Product Categories by Revenue')
+plt.show()
+```
+Here are the top 10 product categories by revenue
+![image](https://github.com/user-attachments/assets/23e95dd3-703f-4319-85ca-1b7bddda32a0)
+
+
+
+
 
