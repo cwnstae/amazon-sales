@@ -695,6 +695,18 @@ Here are the top 10 product categories by revenue
 ![image](https://github.com/user-attachments/assets/23e95dd3-703f-4319-85ca-1b7bddda32a0)
 
 
+### 1.2 Correlation between rating and revenue
+```python
+plt.scatter(highest_revenue['revenue'], highest_revenue['rating'])
+plt.xlabel('revenue')
+plt.ylabel('Rating')
+plt.show()
+```
+This scatter plot shows the relationship between Revenue and Rating
+ - Most products have low revenue, clustering near the lower end.
+ - Higher revenue products tend to have good ratings (around 4.0–4.5).
+ - Some low-rated products still generate revenue, likely due to brand trust or necessity.
+A few outliers have exceptionally high revenue, dominating sales.
 
 
 
