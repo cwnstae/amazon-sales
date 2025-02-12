@@ -1,6 +1,6 @@
 [Visit to see my portfolio [Link]](https://cwnstae.github.io/data-analytic-portfolio/).
 # Amazon Sales EDA
-This project analyzes Amazon sales data "dataset" ([link]([https://insideairbnb.com/get-the-data/](https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset))). to uncover key insights and trends. It showcases my skills in data cleaning, exploratory data analysis (EDA), and visualization and using Python (Pandas, Matplotlib, Seaborn).
+This project analyzes Amazon sales dataset ([link](https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset)).. to uncover key insights and trends. It showcases my skills in data cleaning, exploratory data analysis (EDA), and visualization and using Python (Pandas, Matplotlib, Seaborn).
 
 # Key objectives include:
  - Identifying sales trends and top-performing products
