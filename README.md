@@ -708,5 +708,39 @@ This scatter plot shows the relationship between Revenue and Rating
  - Some low-rated products still generate revenue, likely due to brand trust or necessity.
 A few outliers have exceptionally high revenue, dominating sales.
 
+## 2. How discount offer impact to sales
 
+plt.figure(figsize=(8,6))
+sns.scatterplot(x=highest_revenue['discount_percentage']*100, y=highest_revenue['revenue'])
+```python
+plt.xlabel("Discount (%)")
+plt.ylabel("Revenue")
+plt.title("Discount vs. Revenue")
+# Format x-axis as percentage
+plt.xticks(ticks=plt.xticks()[0], labels=[f"{int(x)}%" for x in plt.xticks()[0]])
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/c5c263cc-245e-4101-bedc-6cc20ee370d3)
+
+Revenue is higher at 40% discount (1.5) compared to 20% discount (0.5). This suggests that moderate discounts (around 20-40%) may strike a balance between attracting customers and maintaining revenue. Higher discounts beyond this range continue to increase revenue, likely due to higher sales volume, but the optimal discount level for maximizing revenue appears to be in the 20-40% range based on this data. Context and additional factors like profit margins would be important for a complete analysis.
+
+## 3. Summary of Customer Purchasing Behavior
+## 3.1 Top Revenue Products & Categories
+ - The top 10 revenue-generating products are primarily from the electronics and phone categories.
+ - Electronics dominate, accounting for over 80% of total revenue.
+ - Home & Kitchen ranks second, closely followed by Computers & Accessories.
+## 3.2 Revenue vs. Rating Insights
+ - Most products generate low revenue, clustering at the lower end of the chart.
+ - High-revenue products generally have good ratings (4.0–4.5).
+ - Some low-rated products still perform well, possibly due to brand trust or essential demand.
+ - A few outliers significantly outperform the rest, contributing a large share of total revenue.
+## 3.3 Impact of Discounts on Revenue
+ - Revenue is higher at 40% discounts (~1.5M) compared to 20% discounts (~0.5M).
+ - This suggests that moderate discounts (20-40%) effectively attract customers while maintaining profitability.
+ - Higher discounts beyond 40% continue increasing revenue, likely due to increased sales volume.
+ - owever, finding the optimal discount requires considering profit margins and additional business factors.
+
+# Conclusion
+This project focused on analyzing the Amazon sales dataset to uncover key trends and insights that can guide business decisions. By applying data cleaning, exploratory data analysis (EDA), and visualization techniques using Python (Pandas, Matplotlib, Seaborn), I was able to identify sales trends, top-performing products, and patterns in customer purchasing behavior.
+The insights gained through this analysis can provide valuable recommendations for businesses to optimize their product offerings and boost revenue. This project not only highlights my technical skills but also demonstrates my ability to transform raw data into actionable insights, a critical aspect of a data analyst role.
 
